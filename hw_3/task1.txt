@@ -1,0 +1,4 @@
+				Task1 topic
+
+Hello reader. First lesson was usefull, because I've learned a lit of
+new about git. 
