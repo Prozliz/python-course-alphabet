@@ -27,6 +27,7 @@ def task_1_add_new_record_to_db(con) -> None:
         SELECT * FROM customers;""")
         return cur.fetchall()
 
+
 def task_2_list_all_customers(cur) -> list:
     """
     Get all records from table Customers
@@ -50,7 +51,7 @@ def task_3_list_customers_in_germany(cur) -> list:
 
     Returns: 11 records
     """
-    cur.execute(" SELECT * FROM customers WHERE country='Germany';")
+    cur.execute(" SELECT * FROM customers WHERE country = 'Germany';")
     return cur.fetchall()
 
 
@@ -79,7 +80,7 @@ def task_5_delete_the_last_customer(con) -> None:
     """
     with con.cursor() as cur:
         cur.execute(""" DELETE FROM customers
-        WHERE customerid=(SELECT MAX(customerid)
+        WHERE customerid = (SELECT MAX(customerid)
         FROM customers);
         """)
 
@@ -141,7 +142,6 @@ def task_9_count_customers_by_country_with_than_10_customers(cur):
     return cur.fetchall()
 
 
-
 def task_10_list_first_10_customers(cur):
     """
     List first 10 customers from the table
@@ -195,6 +195,7 @@ def task_13_list_products_from_sweden_suppliers(cur):
                                        WHERE country = ('Sweden'));""")
     return cur.fetchall()
 
+
 def task_14_list_products_with_supplier_information(cur):
     """
     List all products with supplier information
@@ -207,10 +208,9 @@ def task_14_list_products_with_supplier_information(cur):
     cur.execute("""select products.productid,products.productname, products.unit,
                    products.price, suppliers.country, suppliers.city, suppliers.suppliername
                    from products
-                   inner join suppliers on products.supplierid=suppliers.supplierid
+                   inner join suppliers on products.supplierid = suppliers.supplierid
                 """)
     return cur.fetchall()
-
 
 
 def task_15_list_customers_with_any_order_or_not(cur):
