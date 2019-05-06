@@ -3,15 +3,17 @@ import os
 DATABASE = {
     "database": "cursor_db",
     "user": "cursor",
-    "password": "very_secret_password",
-    "port": 5432
+    "password": "password",
+    "port": 5432,
+    "host": "localhost"
 }
 
 TEST_DATABASE = {
     "database": "test_cursor_db",
     "user": "test_cursor",
     "password": "test",
-    "port": 5432
+    "port": 5432,
+    "host": "localhost"
 }
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))

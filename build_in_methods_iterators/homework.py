@@ -72,6 +72,7 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
+
     items = {}
     for item in data:
         if item.get(key) == min([keys.get(key) for keys in data if keys.get(key)]):

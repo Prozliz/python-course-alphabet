@@ -3,7 +3,11 @@
 # IDE files
 .idea
 __pycache__
+venv_psql
 
 env
 venv
 virtualenv
+venv_db
+venv_psql
+venv_objcon/
