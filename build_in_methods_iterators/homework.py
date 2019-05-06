@@ -58,7 +58,8 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    pass
+
+    return min(list(filter(lambda x: x.get(key), data)), key=lambda y: y[key])
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
