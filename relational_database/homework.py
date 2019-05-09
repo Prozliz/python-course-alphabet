@@ -3,29 +3,29 @@ import psycopg2
 
 
 def task_1_add_new_record_to_db(con) -> None:
+    """
+        Add a record for a new customer from Singapore
+        {
+            'customer_name': 'Thomas',
+            'contactname': 'David',
+            'address': 'Some Address',
+            'city': 'London',
+            'postalcode': '774',
+            'country': 'Singapore',
+        }
+
+        Args:
+            con: psycopg connection
+
+        Returns: 92 records
+    """
+
     with con.cursor() as cursor:
         cursor.execute("""INSERT INTO customers('customername','contactname', 'address','city','postalcode','country')
 
                           VALUES('Thomas','David','Some Address','London','774','Singapore')""")
         con.comit()
         return cursor.fetchall()
-
-"""
-    Add a record for a new customer from Singapore
-    {
-        'customer_name': 'Thomas',
-        'contactname': 'David',
-        'address': 'Some Address',
-        'city': 'London',
-        'postalcode': '774',
-        'country': 'Singapore',
-    }
-
-    Args:
-        con: psycopg connection
-
-    Returns: 92 records
-"""
 
 
 def task_2_list_all_customers(cur) -> list:
