@@ -149,11 +149,12 @@ class Collectioner():
         self.counter =0
 
     def hit_hat(self):
-        price_collectioner=0
+        price_collectioner = 0
         for a_car in self.garages:
-            for only_car in a_car:
-                price_collectioner+= only_car.__dict__['price']
-        return '{}- is price all my cars'.format(price_collectioner)
+            for this_car in a_car.__dict__['cars']:
+                price_collectioner += this_car.__dict__['price']
+            return price_collectioner
+
 
 
     def garages_count(self):
@@ -243,10 +244,16 @@ print(garage_3.remove(car_2))
 print(garage_4.hit_hap())
 
 #___COLLECTIONARE___
-collectionar_1.garages = [garage_1, garage_2, garage_3]
+collectionar_1.garages = [garage_1]
 collectionar_2.garages = [garage_4]
 print(collectionar_1)
 print(collectionar_1.hit_hat())
 print(collectionar_2.garages_count())
-print(collectionar_1.add_car(car_3,garage_2))
+print(collectionar_1.add_car(car_1,garage_2))
+print(collectionar_1)
+print(collectionar_1.hit_hat())
+
+print(collectionar_1.add_car(car_2,garage_1))
+print(collectionar_1)
+print(collectionar_1.hit_hat())
 print(collectionar_1.compare_collectioner(collectionar_2))
