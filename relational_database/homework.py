@@ -24,8 +24,7 @@ def task_1_add_new_record_to_db(con) -> None:
         cursor.execute("""INSERT INTO customers('customername','contactname', 'address','city','postalcode','country')
 
                           VALUES('Thomas','David','Some Address','London','774','Singapore')""")
-        con.comit()
-        return cursor.fetchall()
+        con.commit()
 
 
 def task_2_list_all_customers(cur) -> list:
@@ -68,7 +67,7 @@ def task_4_update_customer(con):
     con.execute("""UPDATE Customers 
         SET 'customername'='Johnny Depp' 
         WHERE 'customerid'= 1""")
-    con.comit()
+    con.commit()
     return con.fetchall()
 
 
