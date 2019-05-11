@@ -92,12 +92,12 @@ class Car():
         else:
             raise StopIteration'''
 class Garage():
-     def __init__(self,cars: list,town,places:int):
+     def __init__(self,cars: list,town,places:int,owner = None):
         if town in TOWNS:
             self.town = town
         self.cars = cars
         self.places = places - len(cars)
-        self.owner = None
+        self.owner = uuid.uuid4()
         self.counter = 0
 
      def add (self,new_car):
