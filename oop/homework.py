@@ -1,5 +1,6 @@
 from math import ceil
 
+
 class Cat:
     """
     Write Class Cat which will receive age from user
@@ -154,7 +155,6 @@ class Wall:
         return ceil(self.wall_square() / wallpaper_square)
 
 
-
 class Roof:
     """
         * Implement class Roof which receives such parameters: width, height and roof_type
@@ -238,7 +238,6 @@ class Door:
         self.metal_price = new_price
 
 
-
 class House:
     """
     !!!! DON'T WRITE NEW METHODS TO THIS CLASS EXCEPT FOR THOSE LISTED BELOW !!!
@@ -313,14 +312,12 @@ class House:
         else:
             print('House cant have more than 4 doors')
 
-
     def create_roof(self, width, height, roof_type):
         if (width or height) == 0:
             print('Something wrong with your roof parameters')
         else:
             roof = Roof(width, height, roof_type)
             self.__roof = roof
-
 
     def create_window(self, width, height):
         if (width or height) == 0:
@@ -329,14 +326,12 @@ class House:
             window = Window(width, height)
             self.__windows.append(window)
 
-
     def create_door(self, width, height):
         if (width or height) == 0:
             print('Something wrong with your door parameters')
         else:
             door = Door(width, height)
             self.__door = door
-
 
     def get_count_of_walls(self):
         return len(self.__walls)
@@ -404,8 +399,6 @@ class House:
 # yellow_cheetah.run(5)
 # yellow_cheetah.get_saturation_level()
 # # __________________________THE END______________________________
-
-
 
 
 print('___________________________House initiation_________________')
