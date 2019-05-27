@@ -1,4 +1,4 @@
-from math import ceil
+import math
 
 
 class Cat:
@@ -43,7 +43,8 @@ class Cat:
 
     def __init__(self, age):
         self.age = age
-        self.average_speed = self._set_average_speed()
+        self.average_speed = None
+        self._set_average_speed()
         self.saturation_level = 50
 
     def eat(self, product):
@@ -58,7 +59,7 @@ class Cat:
 
     def _reduce_saturation_level(self, value):
         self.saturation_level -= value
-        if self.saturation_level < 0:
+        if self.saturation_level <= 0:
             self.saturation_level = 0
 
     def _increase_saturation_level(self, value):
@@ -68,33 +69,33 @@ class Cat:
 
     def _set_average_speed(self):
         if self.age <= 7:
-            return 12
-        elif 8 < self.age <= 10:
-            return 9
+            self.average_speed = 12
+        elif self.age <= 10:
+            self.average_speed = 9
         elif self.age > 10:
-            return 6
+            self.average_speed = 6
 
     def run(self, hours):
         ran_km = self.average_speed * hours
-        if 0 < ran_km <= 25:
+        if ran_km <= 25:
             self._reduce_saturation_level(2)
-        elif 25 < ran_km <= 50:
+        elif ran_km <= 50:
             self._reduce_saturation_level(5)
-        elif 50 < ran_km <= 100:
+        elif ran_km <= 100:
             self._reduce_saturation_level(15)
-        elif 100 < ran_km <= 200:
+        elif ran_km <= 200:
             self._reduce_saturation_level(25)
-        elif ran_km > 200:
+        else:
             self._reduce_saturation_level(50)
-        print(f"Your cat can run {ran_km} kilometers", end='\n\n')
+        return f"Your cat can run {ran_km} kilometers"
 
     def get_saturation_level(self):
         if self.saturation_level <= 0:
-            print('Sad, but your cat is died')
-        print('Saturation level is:', self.saturation_level)
+            return "Your cat is died :("
+        return self.saturation_level
 
     def get_average_speed(self):
-        print('Cats average speed is:', self._set_average_speed())
+        return self.average_speed
 
 
 class Cheetah(Cat):
@@ -121,11 +122,11 @@ class Cheetah(Cat):
 
     def _set_average_speed(self):
         if self.age <= 5:
-            return 90
+            self.average_speed = 90
         elif 5 < self.age <= 15:
-            return 75
+            self.average_speed = 75
         elif self.age > 15:
-            return 40
+            self.average_speed = 40
 
 
 class Wall:
@@ -151,8 +152,10 @@ class Wall:
         return self.width * self.height
 
     def number_of_rolls_of_wallpaper(self, roll_width_m, roll_length_m):
-        wallpaper_square = roll_width_m * roll_length_m
-        return ceil(self.wall_square() / wallpaper_square)
+        lines_in_roll = math.floor(roll_length_m / self.height)
+        lines = math.floor(self.width / roll_width_m)
+        number_of_rolls = lines / lines_in_roll
+        return number_of_rolls
 
 
 class Roof:
@@ -305,12 +308,12 @@ class House:
     def create_wall(self, width, height):
         if len(self.__walls) < 4:
             if (width or height) == 0:
-                print('Parameter must be more than 0')
+                raise ValueError('Wrong value')
             else:
                 wall = Wall(width, height)
                 self.__walls.append(wall)
         else:
-            print('House cant have more than 4 doors')
+            raise ValueError('Only 4 walls permitted')
 
     def create_roof(self, width, height, roof_type):
         if (width or height) == 0:
@@ -362,7 +365,7 @@ class House:
 
     def get_number_of_rolls_of_wallpapers(self, roll_width_m, roll_length_m):
         if (roll_width_m or roll_length_m) == 0:
-            print('Something wrong with your wallpaper parameters')
+            raise ValueError('Something wrong with your wallpaper parameters')
         else:
             return sum([wall.number_of_rolls_of_wallpaper(roll_width_m, roll_length_m) for wall in self.__walls])
 
@@ -401,22 +404,22 @@ class House:
 # # __________________________THE END______________________________
 
 
-print('___________________________House initiation_________________')
-
-house = House()
-
-house.create_wall(10, 2.2)
-house.create_wall(10, 2.2)
-house.create_wall(10, 2.2)
-house.create_wall(10, 2.2)
-house.create_roof(10, 5, 'gable')
-house.create_door(1.2, 2.2)
-house.create_window(3, 1.5)
-house.create_window(2, 1.5)
-print('Walls in the house:', house.get_count_of_walls())
-print('Windows in the house: ', house.get_count_of_windows())
-print('Square of all windows in your house is:', house.get_windows_square(), 'm2')
-print('Dor price is: ', house.get_door_price('wood'))
-print('House room square is: ', house.get_room_square(), 'm2')
-print('For your house you need', house.get_number_of_rolls_of_wallpapers(0.5, 10), 'rolls of wallpapers')
+# print('___________________________House initiation_________________')
+#
+# house = House()
+#
+# house.create_wall(10, 2.2)
+# house.create_wall(10, 2.2)
+# house.create_wall(10, 2.2)
+# house.create_wall(10, 2.2)
+# house.create_roof(10, 5, 'gable')
+# house.create_door(1.2, 2.2)
+# house.create_window(3, 1.5)
+# house.create_window(2, 1.5)
+# print('Walls in the house:', house.get_count_of_walls())
+# print('Windows in the house: ', house.get_count_of_windows())
+# print('Square of all windows in your house is:', house.get_windows_square(), 'm2')
+# print('Dor price is: ', house.get_door_price('wood'))
+# print('House room square is: ', house.get_room_square(), 'm2')
+# print('For your house you need', house.get_number_of_rolls_of_wallpapers(0.5, 10), 'rolls of wallpapers')
 
