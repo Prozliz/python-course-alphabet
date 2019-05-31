@@ -1,4 +1,4 @@
-import random
+ximport random
 from typing import List
 
 from lection.magic_methods.lifetime import Programmer

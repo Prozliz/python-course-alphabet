@@ -1,13 +1,13 @@
 import json
 
-from flask import Flask, render_template
+import Flask
 
 app = Flask(__name__)
 
 
 with open('movies.json') as f:
     MOVIES = json.load(f)
-
+    print(MOVIES)
 
 @app.route('/')
 def home_page():
@@ -25,6 +25,7 @@ def movie_page(title):
         if MOVIES[i].get('title') == title:
             return render_template('movie.html', title=title, movie=MOVIES[i])
     return render_template('movies.html', title='Movies list', movies=MOVIES)
+
 
 
 if __name__ == '__main__':

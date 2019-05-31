@@ -38,7 +38,7 @@ class Figure:
 fig1 = Figure()
 
 
-# print(fig1.draw(12))
+print(fig1.draw(12))
 
 
 class Cat:

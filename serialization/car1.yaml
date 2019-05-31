@@ -1,0 +1,8 @@
+!!python/object:__main__.Car
+milege: 128
+number: !!python/object:uuid.UUID
+  int: 237263712022407631725116091103127913
+  is_safe: !!python/object/apply:uuid.SafeUUID [null]
+price: 12
+producer: BMW
+type: SUV

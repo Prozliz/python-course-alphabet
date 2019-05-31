@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     print(type(config), config)
     print(config['database'])
-    print(config['database']['port'])
+    print(config['database']['por   t'])
     dict_config = dict(config)
     print(type(dict_config), dict_config)
 

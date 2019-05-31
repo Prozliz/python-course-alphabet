@@ -1,0 +1,27 @@
+!!python/object:__main__.Collectioner
+counter: 0
+garages:
+- !!python/object:__main__.Garage
+  cars:
+  - !!python/object:__main__.Car
+    milege: 128
+    number: &id001 !!python/object:uuid.UUID
+      int: 237263712022407631725116091103127913
+      is_safe: &id002 !!python/object/apply:uuid.SafeUUID [null]
+    price: 12
+    producer: BMW
+    type: SUV
+  - !!python/object:__main__.Car
+    milege: 123
+    number: *id001
+    price: 12
+    producer: BMW
+    type: SUV
+  counter: 0
+  owner: null
+  places: 2
+  town: Kiev
+name: Vadik
+register_id: !!python/object:uuid.UUID
+  int: 249668800325077628197294501456506886401
+  is_safe: *id002
