@@ -8,7 +8,6 @@ app = Flask(__name__)
 with open('movies.json') as f:
     MOVIES = json.load(f)
 
-
 @app.route('/')
 def home_page():
     return render_template('home.html', title='Home')

@@ -11,7 +11,7 @@ python run.py
 
 Connect `layout.html` as parent template to all other child templates. Make sure that you have navigation bar on every page.
 
-Render proper title inside `<title></title>` tag on every page from views functions in `run.py`.
+    Render proper title inside `<title></title>` tag on every page from views functions in `run.py`.
 
 `home` page is just home parking page with button link to the list of movies. Put your name in the footer.
 `movies` page is the page with the main content where you should show all the movies from `movies.json` dataset in a `for` loop and left only movies not older than 2010 year by filtering them with the `if` statement.
