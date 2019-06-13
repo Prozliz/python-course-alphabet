@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block head %}
+ <h1> {{title}}</h1>
+{% endblock %}
+{% block content %}
+    <div>
+
+        {% for vegetable in vegetables_list %}
+            <li>{{ vegetable }}</li>
+        {% endfor %}
+    </div>
+
+{% endblock %}
