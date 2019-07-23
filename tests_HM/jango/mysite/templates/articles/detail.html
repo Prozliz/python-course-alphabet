@@ -1,0 +1,9 @@
+<p>Author{{ article.profile}}</p>
+
+<p>Title{{article.title}}</p>
+<br>
+
+{{article.description?|save}}
+
+<a href="{% url 'update' article.id %}}">Update</a>
+<a href="{ url 'delet' article.id %}">Delete</a>
